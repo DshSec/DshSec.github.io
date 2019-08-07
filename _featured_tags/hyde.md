@@ -1,7 +1,7 @@
 ---
 layout: list
-title: 转载区
-slug: 转载区
+title: 杂货铺
+slug: 杂货铺
 menu: true
 order: 1
 description: >
