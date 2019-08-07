@@ -227,8 +227,8 @@ plugins:
 # social:
 #   name:                <firstname> <lastname>
 #   links:
-#     - https://twitter.com/<username>
-#     - https://github.com/<username>
+#     - https://twitter.com/dshsec
+#     - https://github.com/dshsec
 
 
 # Other Plugins
