@@ -58,7 +58,7 @@ accent_color:          '#4fb1ba'
 ## 解题思路：
   1.要输入一个字符串使得argv的五部分加起来等于hashcode，即 0x21DD09EC；
   2.将 0x21DD09EC拆分成五部分，可以转换成10进制后进行随意拆分，拆成a*4+b这样的格式(更方便)；例如a=0x01020304 b=shellcode-a*4=0x1dd4fddc
-  ![Full-width image](/assets/img/docs/Pwnable_2_collision.jpg){:.lead data-width="800" data-height="100"}
+  ![Full-width image](/assets/img/docs/Pwnable_2_collision.png){:.lead data-width="800" data-height="100"}
   3.利用python -c  来执行拆出来的shellcode；在用$将程序结果结果引入程序
   4.注意小段序输入，低位在前高位在后；
 
