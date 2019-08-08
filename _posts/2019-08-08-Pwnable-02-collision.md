@@ -62,7 +62,17 @@ accent_color:          '#4fb1ba'
   3. 利用python -c  来执行拆出来的shellcode；在用$将程序结果结果引入程序
   4. 注意小段序输入，低位在前高位在后；
 
-### 解答：
-  ./col $(python -c 'print "\x04\x03\x02\x01"*4+"\xdc\xfd\xd4\x1d"'){:.lead}
+## 解答：
+  ./col $(python -c 'print "\x04\x03\x02\x01" * 4+"\xdc\xfd\xd4\x1d"')
+## poc
+```python
+
+  from pwn import *
+  pwn_ssh=ssh(host='pwnable.kr',user='col',password='guest',port=2222)
+  print(pwn_ssh.connected())
+  sh=pwn_ssh.process(argv=['collision','\x04\x03\x02\x01'* 4 + '\xdc\xfd\xd4\x1d'],executable='./col')
+  print(sh.recvall())
+
+```
 
 > **NOTE**：['大小端模式'](https://baike.baidu.com/item/%E5%A4%A7%E5%B0%8F%E7%AB%AF%E6%A8%A1%E5%BC%8F/6750542?fr=aladdin)大端模式，是指数据的高字节保存在内存的低地址中，而数据的低字节保存在内存的高地址中，这样的存储模式有点儿类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放；这和我们的阅读习惯一致。小端模式，是指数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中，这种存储模式将地址的高低和数据位权有效地结合起来，高地址部分权值高，低地址部分权值低.
