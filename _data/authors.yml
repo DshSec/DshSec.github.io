@@ -8,7 +8,7 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    我是一个信息安全热爱者，也是游戏热爱者。但是我不喜欢写东西、我希望改变这个毛病。
+    信息安全热爱者，也是游戏热爱者。但是不喜欢写东西、希望改变这个毛病。
 
   # This photo will be used in the about section
   picture:
