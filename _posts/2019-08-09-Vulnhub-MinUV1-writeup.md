@@ -10,13 +10,13 @@ accent_color:          '#4fb1ba'
 ---
 
 # MinUV1的writeup
-    ["靶机链接点击此处"](https://www.vulnhub.com/entry/minu-1,235/)
+    ["靶机链接点击此处"](https://www.vulnhub.com/entry/minu-1,235/)下载靶机后，通过Virtualbox导入虚拟机即可使用
 ## 测试过程
 1. 下载靶机后，使用Virtualbox导入后开机直接获得IP，省掉了主机存活发现的环节
   ![Full-width image](/assets/img/docs/MlnUV1/1.png)
 2. 拿到后直接使用nmap进行扫描看开起来那些服务，扫描仅发现了80端口,(一般先进行常规端口扫描，全端口在有必要的情况下可在对web或者其他常见服务进行测试时进行扫描，可有效节省时间)
     ![Full-width image](/assets/img/docs/MlnUV1/2.png)
-3. 访问80端口发现是Apache默认页面，大致查看过后并无其他发现，用dirb或者wfuzz(wfuzz的使用教程有一个老哥介绍很清楚可以去看下一下，['此处为传送门'](https://www.freebuf.com/author/m0nst3r))进行一下目录扫描
+3. 访问80端口发现是Apache默认页面，大致查看过后并无其他发现，用dirb或者wfuzz(wfuzz的使用教程有一个老哥介绍很清楚可以去看下一下，['此处为传送门'](https://www.freebuf.com/author/m0nst3r)进行一下目录扫描
     ![Full-width image](/assets/img/docs/MlnUV1/3.png)
     ![Full-width image](/assets/img/docs/MlnUV1/4.png)
 4. 两者均发现了test.php,按照惯例进行访问并哪里不会点哪里；点的时候要注意地址栏的变化；惯例进行源码的查看，发现这个链接有存在文件包含漏洞的嫌疑
