@@ -10,7 +10,7 @@ accent_color:          '#4fb1ba'
 ---
 
 # MinUV1的writeup
-
+    ["靶机链接点击此处"](https://www.vulnhub.com/entry/minu-1,235/)
 ## 测试过程
 1. 下载靶机后，使用Virtualbox导入后开机直接获得IP，省掉了主机存活发现的环节
   ![Full-width image](/assets/img/docs/MlnUV1/1.png)
