@@ -10,13 +10,15 @@ accent_color:          '#4fb1ba'
 ---
 
 # MinUV1的writeup
-## 靶机相关链接
+
+
+### 靶机相关链接
   + 靶机介绍：["靶机介绍主页"](https://www.vulnhub.com/entry/minu-1,235/)
   + 下载链接1:["靶机下载(Goole云盘)"](https://drive.google.com/open?id=1n_zpZ4M8wpEl5U_o5455MAiuwhCzStlh)
   + 下载链接2：["靶机下载(镜像)"](https://download.vulnhub.com/minu/MinUv1.ova.7z)
   + 下载链接3：["靶机下载(Torrent)"](https://download.vulnhub.com/minu/MinUv1.ova.7z.torrent)
   + 下载靶机后，通过Virtualbox导入虚拟机即可使用
-## 测试过程
+### 测试过程
 1. 下载靶机后，使用Virtualbox导入后开机直接获得IP，省掉了主机存活发现的环节
   ![Full-width image](/assets/img/docs/MlnUV1/1.png)
 2. 拿到后直接使用nmap进行扫描看开起来那些服务，扫描仅发现了80端口,(一般先进行常规端口扫描，全端口在有必要的情况下可在对web或者其他常见服务进行测试时进行扫描，可有效节省时间)
