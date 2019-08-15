@@ -8,12 +8,12 @@ author: author1
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          '#4fb1ba'
 ---
-# pwnable的第二题collision
+### pwnable的第二题collision
 
 
   ['pwnable.kr'](https://pwnable.kr/index.php)is a non-commercial wargame site which provides various pwn challenges regarding system exploitation. the main purpose of pwnable.kr is 'fun'.    please consider each of the challenges as a game. while playing pwnable.kr, you could learn/improve system hacking skills but that shouldn't be your only purpose.
 
-## 源代码：
+#### 源代码：
 ```c++
   #include <stdio.h>
   #include <string.h>
@@ -57,16 +57,16 @@ accent_color:          '#4fb1ba'
   }
 
   ```
-## 解题思路：
+#### 解题思路：
   1. 要输入一个字符串使得argv的五部分加起来等于hashcode，即 0x21DD09EC；
   2. 将 0x21DD09EC拆分成五部分，可以转换成10进制后进行随意拆分，拆成a*4+b这样的格式(更方便)；例如a=0x01020304 b=shellcode-a*4=0x1dd4fddc
   ![Full-width image](/assets/img/docs/Pwnable_2_collision.png)
   3. 利用python -c  来执行拆出来的shellcode；在用$将程序结果结果引入程序
   4. 注意小段序输入，低位在前高位在后；
 
-## 解答：
+#### 解答：
   ./col $(python -c 'print "\x04\x03\x02\x01" * 4+"\xdc\xfd\xd4\x1d"')
-## poc
+#### poc
 ```python
 
   from pwn import *
