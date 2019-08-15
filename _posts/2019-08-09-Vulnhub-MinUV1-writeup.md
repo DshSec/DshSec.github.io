@@ -11,7 +11,6 @@ accent_color:          '#4fb1ba'
 
 ### MinUV1的writeup
 
-
 #### 靶机相关链接
   + 靶机介绍：["靶机介绍主页"](https://www.vulnhub.com/entry/minu-1,235/)
   + 下载链接1:["靶机下载(Goole云盘)"](https://drive.google.com/open?id=1n_zpZ4M8wpEl5U_o5455MAiuwhCzStlh)
