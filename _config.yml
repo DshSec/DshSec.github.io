@@ -1,271 +1,109 @@
-# Config
-# ========================================================================================
+# html lang
+language: en
 
-# IMPORTANT: Set the URL of your site.
-# Set to https://<username>.github.io when hosting on GitHub Pages
-# (unless you are using a custom domain).
-url:                  ''
+# Header
+navname: Bentham's Blog
 
-# IMPORTANT: Set The "base URL" of your site.
-#
-# When hosting your site in a subdirectory of a server, set to /<name of directory>
-# (with leading /, but without the < >)
-# Use the empty string '' otherwise.
-#
-# When using GitHub Pages, set to '' when hosting a user- or organization page,
-# i.e. when the name of the repository looks like <username>.github.io.
-# Otherwise, set to /<name of repository> (with leading /, but without the < >).
-baseurl:               ''
+# navigatior items
+nav:
+  Posts: /archives
+  Categories: /category
+  Tags: /tag
+  About: /about
 
-# Language of your content in 2-letter code, e.g.: en, de.
-# You may also provide a location, e.g.: en-us, de_AT.
-lang:                  en
+# favicon
+favicon: /favicon.ico
 
-# The title of your blog. Used in the sidebar and the browser tab.
-title:                 DshSec
+# Profile
+nickname: Jeremy Bentham
 
-# A short description (~150 chars) of the page used for the meta description tag.
-# Can use markdown, but no more than one paragraph (enforced by `>`)
-description:           >
-  This is a blog
+### this variable is MarkDown form.
+description: Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** <br>Fusce eget urna vitae velit *eleifend interdum at ac* nisi.
+avatar: /image/avatar.jpeg
 
-# A shorter description for the sidebar.
-tagline:               >
-  做一个愿意记录的人，无关重要性、无关成就
+# main menu navigation
+## links key words should not be changed.
+## Complete url after key words.
+## Unused key can be commented out.
+links:
+  Blog: /
+#  Category:
+#  Tags:
+#  Link:
+#  Resume:
+#  Publish:
+#  Trophy:
+#  Gallary:
+#  RSS:
+#  AliPay:
+  ZhiHu: https://www.zhihu.com/people/sirice
+#  LinkedIn:
+#  FaceBook:
+#  Twitter:
+#  Skype:
+#  CodeSandBox:
+#  CodePen:
+#  Sketch:
+#  Gitlab:
+#  Dribble:
+  Instagram:
+  Reddit:
+#  YouTube:
+#  QQ:
+#  Weibo:
+#  WeChat:
+  Github: https://github.com/Siricee
 
-# A list of keywords for your blog
-keywords:              []
+# how links show: you have 2 choice--text or icon.
+links_text_enable: false
+links_icon_enable: true
 
-# Used by jekyll-seo-tag...
-logo:                  /assets/img/Headportrait/Headportrait.jpg
+# Post page
+## Post_meta
+post_meta_enable: true
 
-# This should be the same author as first entry in `_data/authors.yml`.
-# Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
-author:
-  name:                <D> <sh>
-  email:               <dshsec@outlook.com>
-  # Used by `jekyll-seo-tag`:
-  # twitter:             <username>
-  picture:  /assets/img/Headportrait/Headportrait.jpg
-  social:
-      twitter:         https://twitter.com/Dshsec1
-      github:          https://github.com/DshSec/
-# This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2019. All rights reserved.
+post_author_enable: true
+post_date_enable: true
+post_category_enable: true
+## Post copyright
+post_copyright_enable: true
 
-# Add links to the footer.
-# Typically you'll want to link to your impress, cookies or privacy policy, etc.
-# legal:
-#   - title:             Impress
-#     href:              /impress/
-#   - title:             Cookies Policy
-#     href:              /cookies-policy/
+post_copyright_author_enable: true
+post_copyright_permalink_enable: true
+post_copyright_license_enable: true
+post_copyright_license_text: Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE
+post_copyright_slogan_enable: true
+post_copyright_slogan_text: Do you believe in <strong>DESTINY<strong>?
+## toc
+post_toc_enable: true
 
-# Format of the permalinks
-permalink:             pretty
+# Page
+page_title_enable: true
 
-# Pagination configuration (used by the `blog` layout)
-paginate:              5
-paginate_path:         /page-:num/
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: MMMM D, YYYY
+time_format: H:mm:ss
 
+# stylesheets loaded in the <head>
+stylesheets:
+  - /css/style.css
 
-# Customizaton
-# ========================================================================================
-
-# Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg.jpg
-accent_color:          '#4fb1ba'
-
-# The string encoding which fonts to fetch from Google Fonts.
-# See: <https://qwtel.com/hydejack/docs/configuration/>
-google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
-
-# The text font. Expects a string that is a valid CSS font-family value.
-font:                  Noto Sans, Helvetica, Arial, sans-serif
-
-# The font used for headings. Expects a string that is a valid CSS font-family value.
-font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
-
-# 3rd Party Integrations
-# ----------------------------------------------------------------------------------------
-
-# Set your Google Analytics id to receive `pageview` events.
-# To remove Google Anaylics from your page, remove the line below.
-# google_analytics:      UA-XXXXXXXX-X
-
-# Setting a disqus shortname will enable the comment section on
-# pages with `comments: true` in the front matter.
-# disqus:                <disqus_shortname>
-
-# Setting a tinyletter username will enable the newsletter subscription box.
-# tinyletter:            <tinyletter_username>
-
-# Hydejack Settings
-# ----------------------------------------------------------------------------------------
-# These settings are specific to Hydejack.
-
-hydejack:
-  # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, related]
-
-  # Configure the order of complementary content on project pages
-  project_addons:      [about, newsletter, other]
-
-  # If you do not use Google Fonts, set to `true`.
-  no_google_fonts:     false
-
-  # Set to `true` if you don't want to show an icon indicating external links
-  no_mark_external:    false
-
-  # Set to `true` if third party plugins fail to work with dynamically loaded pages
-  no_push_state:       false
-
-  # Set to `true` if you want to disable the drawer
-  no_drawer:           false
-
-  # Set to `true` if you do not want parts of the css inlined in <head/>
-  # This *may* be benefitial when serving the site over HTTP/2.
-  no_inline_css:       false
-
-  # Code blocks and tables "break" the layout by spanning the full available width.
-  # Set this to true if you want them to be the same width as other content.
-  no_break_layout:     false
-
-  # Set to `true` if you do not want to expose your resume and projects
-  # in machine-readable formats.
-  no_structured_data:  false
-
-  # You can set this to `true` if you don't want to set the `theme-color` meta tag,
-  # This only affects the meta tag, not the color specified in the app manifest.
-  no_theme_color:      false
-
-  # Set to `true` when building with the `--lsi` option
-  use_lsi:             false
-
-  # When using Google Analytics, set to `true` to display a cookie notice banner.
-  # When enabled, no user-related data will be stored until the user gives consent.
-  cookies_banner:      false
+# scripts loaded in the end of the body
+scripts:
+  - /js/script.js
+  - /js/tocbot.min.js
+    # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
+    # https://github.com/tscanlin/tocbot
 
 
-# Collections
-# ========================================================================================
-
-collections:
-  featured_categories:
-    permalink:         /category/:name/
-    output:            true
-
-  featured_tags:
-    permalink:         /tag/:name/
-    output:            true
-
-  projects:
-    permalink:         /projects/:path/
-    output:            true
-
-
-# File inclusion/exclusion
-# ========================================================================================
-
-exclude:
-  - vendor
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - package.json
-  - package-lock.json
-include:
-  - LICENSE.md
-
-
-# Plugins and Plugin Configuration
-# ========================================================================================
-
-plugins:
-  # - jekyll-avatar
-  # - jekyll-default-layout
-  - jekyll-feed
-  # - jekyll-gist
-  # - jekyll-optional-front-matter
-  - jekyll-paginate
-  # - jekyll-readme-index
-  # - jekyll-redirect-from
-  - jekyll-relative-links
-  # - jekyll-remote-theme
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  # - jekyll-titles-from-headings
-
-# Theme
-# ---------------------------------------------------------------------------------------
-
-# theme: jekyll-theme-hydejack
-# remote_theme: qwtel/hydejack@gem
-
-# SEO Tag
-# ---------------------------------------------------------------------------------------
-
-# Where you proof that you own this site (used by jekyll-seo-tag)
-# google_site_verification: <verification-id>
-# -- or --
-# webmaster_verifications:
-#   google:              <verification-id>
-#   bing:                <verification-id>
-#   alexa:               <verification-id>
-#   yandex:              <verification-id>
-
-# Used for Twitter cards
-# twitter:
-#   username:            <shortname>
-
-# Used for Facebook open graph
-# facebook:
-#   app_id:              <id>
-#   publisher:           <id>
-#   admins:              <id>
-
-# Used on index and about sites
-# social:
-#   name:                <firstname> <lastname>
-#   links:
-#     - https://twitter.com/dshsec
-#     - https://github.com/dshsec
-
-
-# Other Plugins
-# ---------------------------------------------------------------------------------------
-
-optional_front_matter:
-  remove_originals:    true
-
-readme_index:
-  remove_originals:    true
-
-relative_links:
-  collections:         true
-
-titles_from_headings:
-  strip_title:         true
-  collections:         true
-
-kramdown:
-  footnote_backlink:   '&#x21a9;&#xfe0e;'
-  math_engine:         mathjax
-  math_engine_opts:
-    preview:           true
-    preview_as_code:   true
-
-compress_html:
-  comments:            ["<!-- ", " -->"]
-  clippings:           all
-  endings:             all
-  ignore:
-    envs:              [development]
-
-sass:
-  style:               compressed
-
-# If you are upgrading form v5 (or earlier), uncomment the lines below,
-# so that the location of the feed XML stays the same.
-# feed:
-#   path:                atom.xml
+# plugin functions
+## Mathjax: Math Formula Support
+## https://www.mathjax.org
+mathjax:
+  enable: true
+  import: demand # global or demand
+  ## global: all pages will load mathjax,this will degrade performance and some grammers may be parsed wrong.
+  ## demand: Recommend option,if your post need fomula, you can declare 'mathjax: true' in Front-matter
