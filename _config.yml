@@ -1,109 +1,110 @@
-# html lang
-language: en
+# main text of home
+name: John Doe
+bio: A Man who travels the world eating noodles
 
-# Header
-navname: Bentham's Blog
+# twitter summary info
+description: A blog about technology and stuff related
 
-# navigatior items
-nav:
-  Posts: /archives
-  Categories: /category
-  Tags: /tag
-  About: /about
+# if it's an external image, update below for true
+# better with square images
+external-image: false
+picture: assets/images/profile.jpg
 
-# favicon
-favicon: /favicon.ico
+url: https://koppl.in/indigo
+# your url: http://USERNAME.github.io
 
-# Profile
-nickname: Jeremy Bentham
+permalink: /:title/
 
-### this variable is MarkDown form.
-description: Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** <br>Fusce eget urna vitae velit *eleifend interdum at ac* nisi.
-avatar: /image/avatar.jpeg
+markdown: kramdown
+highlighter: rouge
 
-# main menu navigation
-## links key words should not be changed.
-## Complete url after key words.
-## Unused key can be commented out.
-links:
-  Blog: /
-#  Category:
-#  Tags:
-#  Link:
-#  Resume:
-#  Publish:
-#  Trophy:
-#  Gallary:
-#  RSS:
-#  AliPay:
-  ZhiHu: https://www.zhihu.com/people/sirice
-#  LinkedIn:
-#  FaceBook:
-#  Twitter:
-#  Skype:
-#  CodeSandBox:
-#  CodePen:
-#  Sketch:
-#  Gitlab:
-#  Dribble:
-  Instagram:
-  Reddit:
-#  YouTube:
-#  QQ:
-#  Weibo:
-#  WeChat:
-  Github: https://github.com/Siricee
+# To enable google analytics, supply your token below
+# analytics-google: 'UA-MYANALYTICS'
 
-# how links show: you have 2 choice--text or icon.
-links_text_enable: false
-links_icon_enable: true
+# To enable piwik tracking, supply your url & site ID below
+# analytics-piwik-url: 'piwik.my-host.com'
+# analytics-piwik-id: 1
 
-# Post page
-## Post_meta
-post_meta_enable: true
+# if you don't want comments in your posts, set to false
+disqus: mydisqus
 
-post_author_enable: true
-post_date_enable: true
-post_category_enable: true
-## Post copyright
-post_copyright_enable: true
+# if you don't have any of social below, comment the line
+facebook: myfacebook
+twitter: mytwitter
+# google: mygoogle
+# instagram: myinstagram
+# pinterest: mypinterest
+# linkedin: mylinkedin
+youtube: myyoutube
+spotify: myspotify
+github: mygithub
+stackoverflow: 7044681/mystackoverflow
+quora: userquora
+reddit: username
+medium: medium
+vimeo: myvimeo
+email: myemail@gmail.com
 
-post_copyright_author_enable: true
-post_copyright_permalink_enable: true
-post_copyright_license_enable: true
-post_copyright_license_text: Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE
-post_copyright_slogan_enable: true
-post_copyright_slogan_text: Do you believe in <strong>DESTINY<strong>?
-## toc
-post_toc_enable: true
+authors:
+    johndoe:
+        name: John Doe
+        bio: A Man who travels the world eating noodles
+        external-image: false
+        picture: assets/images/profile.jpg
+        twitter: johndoe
+    jamesfoster:
+        name: James Foster
+        bio: A Man who develops software with coffee
+        external-image: false
+        picture: assets/images/james.jpg
+        twitter: jamesfoster
 
-# Page
-page_title_enable: true
+# do you want a larger site? change the option below
+# options: [normal, large] | default: normal
+# normal = 560px / large = 810px
+width: normal
 
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
-date_format: MMMM D, YYYY
-time_format: H:mm:ss
+# if you don't need pagination, comment the *paginate* configs below
+# paginate: 5
+# paginate_path: "blog/:num/"
 
-# stylesheets loaded in the <head>
-stylesheets:
-  - /css/style.css
+# if you don't need projects, comment the *projects* configs below
+projects: true
 
-# scripts loaded in the end of the body
-scripts:
-  - /js/script.js
-  - /js/tocbot.min.js
-    # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
-    # https://github.com/tscanlin/tocbot
+# if you don't need "about" or "blog", comment them out below
+about: false
+blog: true
 
+# do you want to show the "read time" of the posts?
+read-time: true
 
-# plugin functions
-## Mathjax: Math Formula Support
-## https://www.mathjax.org
-mathjax:
-  enable: true
-  import: demand # global or demand
-  ## global: all pages will load mathjax,this will degrade performance and some grammers may be parsed wrong.
-  ## demand: Recommend option,if your post need fomula, you can declare 'mathjax: true' in Front-matter
+# do you want to show the "tags" inside the posts?
+show-tags: true
+
+# related posts inside a post?
+related: true
+
+# show next & prev links in blog post?
+blog-nav-links: false
+
+# show author block at the end of a post ?
+show-author: true
+
+# do you want some animations?
+animation: true
+
+sass:
+    sass_dir: _sass
+    style: :compressed
+
+gems:
+  - jemoji
+  - jekyll-mentions
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-paginate
+
+jekyll-mentions:
+    base_url: https://github.com
