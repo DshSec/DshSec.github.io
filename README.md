@@ -44,7 +44,7 @@
 You must fill some informations on `_config.yml` to customize your site.
 
 ```
-name: John Doe
+name: DshSec
 bio: 'A Man who travels the world eating noodles'
 picture: 'assets/images/profile.jpg'
 ...
