@@ -4,7 +4,7 @@ title: Vulnhub-MinUV1-writeup
 description: >
   这是vulnhub上靶机MinUV1的writeup
 tags: [技术]
-author: author1
+author: DshSec
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          '#4fb1ba'
 ---
@@ -15,7 +15,7 @@ accent_color:          '#4fb1ba'
   + 下载链接3：["靶机下载(Torrent)"](https://download.vulnhub.com/minu/MinUv1.ova.7z.torrent)
   + 下载靶机后，通过Virtualbox导入虚拟机即可使用
 
-  
+
 #### 测试过程
 1. 下载靶机后，使用Virtualbox导入后开机直接获得IP，省掉了主机存活发现的环节
   ![Full-width image](/assets/img/docs/MlnUV1/1.png)
