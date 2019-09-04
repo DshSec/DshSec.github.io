@@ -212,9 +212,9 @@ $(window).scroll(function() {
 });
 {% endhighlight %}
 
-[1]: http://daringfireball.net/Misc/markdown/
+[1]: http://daringfireball.net/Projects/markdown/
 [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm
 [3]: http://www.markitdown.net/
-[4]: http://daringfireball.net/Misc/markdown/basics
-[5]: http://daringfireball.net/Misc/markdown/syntax
+[4]: http://daringfireball.net/Projects/markdown/basics
+[5]: http://daringfireball.net/Projects/markdown/syntax
 [6]: http://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg
