@@ -189,9 +189,9 @@ Do you want some videos? Youtube, Vimeo or Vevo? Copy the embed code and paste o
 
 <iframe width="560" height="310" src="https://www.youtube.com/embed/r7XhWUDj-Ts" frameborder="0" allowfullscreen></iframe>
 
-[1]: http://daringfireball.net/projects/markdown/
+[1]: http://daringfireball.net/Misc/markdown/
 [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm
 [3]: http://www.markitdown.net/
-[4]: http://daringfireball.net/projects/markdown/basics
-[5]: http://daringfireball.net/projects/markdown/syntax
+[4]: http://daringfireball.net/Misc/markdown/basics
+[5]: http://daringfireball.net/Misc/markdown/syntax
 [6]: http://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg
