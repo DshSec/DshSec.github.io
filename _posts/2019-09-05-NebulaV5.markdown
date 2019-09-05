@@ -19,10 +19,10 @@ description: Nebula是一个用来练习Linux下权限提升的靶机
 
 ### Level00
 1. 首先根据提示登陆level00用户，密码为level00，常规思路，先看用户目录，发现啥也没有。
-![Full-width image](/assets/img/docs/Neubula/level00/1.png)
+![Full-width image](/assets/img/docs/Nebula/level00/1.png)
 2. 看到个flag00文件夹，依旧啥也没有  
-![Full-width image](/assets/img/docs/Neubula/level00/2.png)
+![Full-width image](/assets/img/docs/Nebula/level00/2.png)
 3. 但是不可能是空的，利用find / -user level00 2>/dev/null 会发现搜出来一大堆属于level00用户的文件和文件夹，且其中部分和题目无关的，所以为了精简现在仅搜索leve00的可执行文件和路径含有level00的文件，find / -executable -user level00 2>/dev/null | grep level00,同理对flag00用户的可执行文件也进行搜索，find / -executable -user flag00 2>/dev/null | grep flag00
-![Full-width image](/assets/img/docs/Neubula/level00/3.png)
+![Full-width image](/assets/img/docs/Nebula/level00/3.png)
 4. 然后挨个执行，成功拿到flag  
-![Full-width image](/assets/img/docs/Neubula/level00/4.png)
+![Full-width image](/assets/img/docs/Nebula/level00/4.png)
