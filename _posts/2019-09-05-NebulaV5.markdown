@@ -1,0 +1,28 @@
+---
+title: "Nebula-V5解析"
+layout: post
+date: 2019-09-05
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- linux
+- 权限提升
+category: blog
+blog: true
+author: DshSec
+description: Nebula是一个用来练习Linux下权限提升的靶机
+---
+
+### 靶机详情
+靶机地址：https://www.vulnhub.com/entry/exploit-exercises-nebula-v5,31/  
+靶机介绍：Nebula让参与者了解Linux中的各种常见（并且不常见）弱点和漏洞。它需要看看+ SUID文件+权限+竞争条件+ Shell变量+ $PATH弱点+脚本语言弱点+二进制编译失败。在Nebula结束时，用户将对Linux系统的本地攻击有一个相当透彻的理解，粗略地了解一下可能的一些远程攻击。  
+
+### Level00
+1. 首先根据提示登陆level00用户，密码为level00，常规思路，先看用户目录，发现啥也没有。
+![Full-width image](/assets/img/docs/Neubula/level00/1.png)
+2. 看到个flag00文件夹，依旧啥也没有  
+![Full-width image](/assets/img/docs/Neubula/level00/2.png)
+3. 但是不可能是空的，利用find / -user level00 2>/dev/null 会发现搜出来一大堆属于level00用户的文件和文件夹，且其中部分和题目无关的，所以为了精简现在仅搜索leve00的可执行文件和路径含有level00的文件，find / -executable -user level00 2>/dev/null | grep level00,同理对flag00用户的可执行文件也进行搜索，find / -executable -user flag00 2>/dev/null | grep flag00
+![Full-width image](/assets/img/docs/Neubula/level00/3.png)
+4. 然后挨个执行，成功拿到flag  
+![Full-width image](/assets/img/docs/Neubula/level00/4.png)
