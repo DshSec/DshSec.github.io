@@ -1,0 +1,46 @@
+---
+title: "DNS隧道技术"
+layout: post
+date: 2019-09-05
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- linux
+- 隧道
+- DNS
+#category: blog
+blog: true
+author: DshSec
+description: 涉及DNS隧道技术的简单讲解和利用
+---
+
+
+### DNS
+
+域名系统：Domain Name System(DNS),它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。DNS使用TCP和UDP端口53,简单的来说就是将域名翻译成IP的系统，这样你就可以只用记住baidu.com和sina.com这样的域名而不用去记他们的IP和对应服务的端口。  
+
+### 隧道技术
+ 隧道技术（Tunneling）是一种通过使用互联网络的基础设施在网络之间传递数据的方式。使用隧道传递的数据（或负载）可以是不同协议的数据帧或包。隧道协议将其它协议的数据帧或包重新封装然后通过隧道发送。新的帧头提供路由信息，以便通过互联网传递被封装的负载数据。  
+### DNS隧道
+采用DNS协议来作为隧道的载体是因为在当今网络环境下DNS是一项肯定被使用到的协议，因此大多数网络环境不会对DNS流量进行封堵  
+本段资料：[DNS隧道和工具](https://www.cnblogs.com/bonelee/p/7651746.html)   
+
+#### DNS Tunneling可以分为直连和中继两种
++  直连DNS Tunneling     
+直连也就是Client直接和指定的目标DNS Server连接，通过将数据编码封装在DNS协议中进行通信，这种方式速度快，但是隐蔽性比较弱，很容易被探测到，另外限制比较高，很多场景不允许自己指定DNS Server。  
++ 中继DNS Tunneling    
+DNS迭代查询而实现的中继隧道，则更为隐秘，但同时因为数据包到达目标DNS Server前需要经过多个节点，所以速度上较直连慢很多。DNS Tunneling的中继模式过程如下图所示。    
+![Full-width image](/assets/img/docs/DNStunnel/1.png)  
+上图中，UserA 和User B由于防火墙D的规则限制无法访问外网,但防火墙上对于DNS的流量是放行的。当User需要解析的域名Local DNS Server无法给出回答时，Local DNS Server就会采用迭代查询通过互联网与各级域的权威服务器进行查询，比如从com域的服务器得到test.com域的权威服务器地址，最后定位到所查询域的权威DNS Server，形成一个逻辑信道。所以，我们可以将通信的数据封装在客户端查询的请求中，当请求的数据包经过上图的路径，最终到达我们控制的权威DNS Server时，再从请求数据包中解析出数据，并将相应的数据封装在DNS Response中，返回给Client完成通信。(Local DNS Server可以由Remote DNS Server代替，原理相同)  
+#### dns隧道过程可能出现的问题   
+
+ 1. 由于DNS查询时会先进行缓存查询，若在DNS缓存中存在这个域名的解析记录便会使用本地缓存进行解析，而不会将dns请求转发出去，因此需要不断地变换一些不存在的域名或已过期的域名来保证绕过本地缓存服务器。   
+ 2. DNS载荷编码，通过对域名进行编码来获取进行信息的传输，此处的编码要是对称加密  
+
+###  相关工具  
+ + DNScat2:
+ >github项目地址：https://github.com/iagox86/dnscat2  
+ DNScat2使用教程：https://blog.csdn.net/localhost01/article/details/86591685
+
+### 工具实测
+//待更 
