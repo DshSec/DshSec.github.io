@@ -4,6 +4,9 @@ title: Vulnhub-MinUV1-writeup
 description: >
   这是vulnhub上靶机MinUV1的writeup
 blog: true
+tag:
+- Vulnhub
+- MinUV1
 author: DshSec
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          '#4fb1ba'

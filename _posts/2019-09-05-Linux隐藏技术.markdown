@@ -5,9 +5,7 @@ date: 2019-09-05
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
-- markdown
-- components
-- extra
+- linux
 category: blog
 blog: true
 author: DshSec
@@ -28,7 +26,7 @@ description: 涉及Linux下文件隐藏、进程隐藏、端口复用
 	chattr +i .test.txt 		锁定一个隐藏文件(也可以是普通文件)  
 	lsattr .test.txt			属性查看  
 	chattr -i .test.txt		解除锁定  
-  
+
 ##### 隐藏历史操作命令
 +  开启无痕模式  
 	```
