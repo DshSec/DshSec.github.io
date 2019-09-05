@@ -8,9 +8,10 @@ tag:
 - markdown
 - components
 - extra
-category: blog
+blog: true
 author: jamesfoster
 description: Markdown summary with different options
+# jemoji: '<img class="emoji" title=":ramen:" alt=":ramen:" src="https://assets.github.com/images/icons/emoji/unicode/1f35c.png" height="20" width="20" align="absmiddle">'
 ---
 
 ## Summary:
@@ -54,7 +55,7 @@ Like the [Medium](https://medium.com/) component.
 <div class="side-by-side">
     <div class="toleft">
         <img class="image" src="{{ site.url }}/{{ site.picture }}" alt="Alt Text">
-        <figcaption class="caption">Photo by John Doe</figcaption>
+        <figcaption class="caption">Photo by DshSec</figcaption>
     </div>
 
     <div class="toright">
@@ -66,7 +67,7 @@ Like the [Medium](https://medium.com/) component.
 <div class="side-by-side">
     <div class="toleft">
         <img class="image" src="{{ site.url }}/{{ site.picture }}" alt="Alt Text">
-        <figcaption class="caption">Photo by John Doe</figcaption>
+        <figcaption class="caption">Photo by DshSec</figcaption>
     </div>
 
     <div class="toright">
@@ -84,7 +85,7 @@ Like the [Medium](https://medium.com/) component.
 
     <div class="toright">
         <img class="image" src="{{ site.url }}/{{ site.picture }}" alt="Alt Text">
-        <figcaption class="caption">Photo by John Doe</figcaption>
+        <figcaption class="caption">Photo by DshSec</figcaption>
     </div>
 </div>
 {% endhighlight %}
@@ -96,7 +97,7 @@ Like the [Medium](https://medium.com/) component.
 
     <div class="toright">
         <img class="image" src="{{ site.url }}/{{ site.picture }}" alt="Alt Text">
-        <figcaption class="caption">Photo by John Doe</figcaption>
+        <figcaption class="caption">Photo by DshSec</figcaption>
     </div>
 </div>
 
@@ -188,9 +189,9 @@ Do you want some videos? Youtube, Vimeo or Vevo? Copy the embed code and paste o
 
 <iframe width="560" height="310" src="https://www.youtube.com/embed/r7XhWUDj-Ts" frameborder="0" allowfullscreen></iframe>
 
-[1]: http://daringfireball.net/projects/markdown/
+[1]: http://daringfireball.net/Projects/markdown/
 [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm
 [3]: http://www.markitdown.net/
-[4]: http://daringfireball.net/projects/markdown/basics
-[5]: http://daringfireball.net/projects/markdown/syntax
+[4]: http://daringfireball.net/Projects/markdown/basics
+[5]: http://daringfireball.net/Projects/markdown/syntax
 [6]: http://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg

