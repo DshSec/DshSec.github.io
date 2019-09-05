@@ -38,9 +38,15 @@ DNS迭代查询而实现的中继隧道，则更为隐秘，但同时因为数�
  2. DNS载荷编码，通过对域名进行编码来获取进行信息的传输，此处的编码要是对称加密  
 
 ###  相关工具  
- + DNScat2:
++ DNScat2:
  >github项目地址：https://github.com/iagox86/dnscat2  
- DNScat2使用教程：https://blog.csdn.net/localhost01/article/details/86591685
+ DNScat2使用教程：https://blog.csdn.net/localhost01/article/details/86591685  
+
++ iodine:
+> github项目地址：https://github.com/yarrick/iodine  
+
++ Dns2tcp：
+> kali默认安装
 
 ### 工具实测
 //待更
