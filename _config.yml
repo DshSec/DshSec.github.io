@@ -1,5 +1,5 @@
 # main text of home
-name: John Doe
+name: Dshsec
 bio: A Man who travels the world eating noodles
 
 # twitter summary info
@@ -55,7 +55,7 @@ email: myemail@gmail.com
 
 authors:
     johndoe:
-        name: John Doe
+        name: Dshsec
         bio: A Man who travels the world eating noodles
         external-image: false
         picture: assets/images/profile.jpg
