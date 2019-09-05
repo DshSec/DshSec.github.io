@@ -1,3 +1,20 @@
+---
+title: "Linux隐藏技术"
+layout: post
+date: 2019-09-05
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- markdown
+- components
+- extra
+category: blog
+blog: true
+author: DshSec
+description: 涉及Linux下文件隐藏、进程隐藏、端口复用
+
+---
+
 #####  原文信息
 原文作者：Bypass公众号   
 原文链接：[点击此处直接访问](https://mp.weixin.qq.com/s?srcid=0902Zm6E1XSvVIgYt2Q3jSZm&scene=23&sharer_sharetime=1567437712765&mid=2448904250&sharer_shareid=64458b89777349122de4fc747d336e14&sn=cce745079e51ab4bb013de00c2125bf0&idx=1&__biz=MzA3NzE2MjgwMg%3D%3D&chksm=8b55c067bc22497125d4bd5f7a03e46c214d5db11e5bbdbb8422c92cbcf85e3653def6bab6c5&mpshare=1&key=b1d774c47332243a7516756d3a9fe660b8c7273d25a3a287bd403be11be6776acfe040d8b96edbaf8401c621fdcbd22748edd0c8295201dfafbc1aa7145e0cd9d0f5461881deb303b24b52a0cd9126d8&ascene=1&uin=MTA1MTI5MTUyMQ%3D%3D&devicetype=Windows+10&version=62060834&lang=zh_CN&pass_ticket=XTJUAgoC6SLk6U6jutYqGfS1%2BFGlLiWGnPMvZJGYArRcBGENrZolo0laVgipfxHI)
