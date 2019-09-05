@@ -6,9 +6,9 @@ image: /assets/images/markdown.jpg
 headerImage: false
 tag:
 - linux
-- 隧道
-- DNS
-#category: blog
+- DNS隧道
+
+category: blog
 blog: true
 author: DshSec
 description: 涉及DNS隧道技术的简单讲解和利用
@@ -43,4 +43,4 @@ DNS迭代查询而实现的中继隧道，则更为隐秘，但同时因为数�
  DNScat2使用教程：https://blog.csdn.net/localhost01/article/details/86591685
 
 ### 工具实测
-//待更 
+//待更
