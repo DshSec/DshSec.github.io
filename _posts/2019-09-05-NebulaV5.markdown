@@ -33,3 +33,18 @@ find / -executable -user flag00 2>/dev/null | grep flag00
 ![Full-width image](/assets/img/docs/Nebula/level00/3.png)
 4. 然后挨个执行，成功拿到flag  
 ![Full-width image](/assets/img/docs/Nebula/level00/4.png)
+### Level01
+1. 首先在文件夹下发现flag01文件，并且具有u+s权限，也就是当执行时会以root权限的身份去执行    
+[三种u+s,g+s,o+t权限]("https://blog.csdn.net/linting0909/article/details/82902196")
+![Full-width image](/assets/img/docs/Nebula/level01/1.png)
+2. 然后尝试执行该程序，发现输出为and now what？  
+![Full-width image](/assets/img/docs/Nebula/level01/2.png)
+3. 尝试通过ltrace来跟踪该函数执行时的库函数调用  
+[ltrace和strace]("https://blog.csdn.net/uisoul/article/details/83143290")
+![Full-width image](/assets/img/docs/Nebula/level01/3.png)
+4. 可以看到其中用/usr/bin/env 执行了一句echo and now what?所以程序输出了and now what?    
+添加用户目录到环境变量，并创建getflag的软连接到/home/level01/echo。从而使得执行命令变为system("/usr/bin/env getflag and now what")  
+[ln命令解释]（"https://www.runoob.com/linux/linux-comm-ln.html"）
+![Full-width image](/assets/img/docs/Nebula/level01/4.png)
+5. 执行/home/level01/flag01成功拿到flag  
+![Full-width image](/assets/img/docs/Nebula/level01/5.png)
