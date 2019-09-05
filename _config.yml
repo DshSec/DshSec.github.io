@@ -1,6 +1,6 @@
 # main text of home
-name: DshSec
-bio: A Little Chicken Loving Information Security
+name: John Doe
+bio: A Man who travels the world eating noodles
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -10,13 +10,16 @@ description: A blog about technology and stuff related
 external-image: false
 picture: assets/images/profile.jpg
 
+# If you want to include your resume, set to true
+# and specify source (external or local).
+resume: true
+resume-external: true
+resume-url: https://google.com/?q=my+resume
+
 url: https://dshsec.github.io
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
-
-#markdown: kramdown
-highlighter: rouge
 
 # To enable google analytics, supply your token below
 # analytics-google: 'UA-MYANALYTICS'
@@ -25,8 +28,10 @@ highlighter: rouge
 # analytics-piwik-url: 'piwik.my-host.com'
 # analytics-piwik-id: 1
 
-# if you don't want comments in your posts, set to false
-disqus: mydisqus
+# if you don't want comments in your posts, leave categories empty
+disqus:
+  shortname: mydisqus # enter this from your disqus account
+  categories: [blog, project] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
 facebook: myfacebook
@@ -35,23 +40,32 @@ twitter: mytwitter
 # instagram: myinstagram
 # pinterest: mypinterest
 # linkedin: mylinkedin
-youtube: myyoutube
-spotify: myspotify
+# youtube: myyoutube
+# spotify: myspotify
 github: mygithub
-stackoverflow: 7044681/mystackoverflow
-quora: userquora
-reddit: username
+# gitlab: mygitlab
+# lastfm: mylastfm
+# stackoverflow: 7044681/mystackoverflow
+# quora: userquora
+# reddit: username
 medium: medium
-vimeo: myvimeo
-email: dshsec@outlook.com
+# vimeo: myvimeo
+# lanyrd: mylanyrd
+email: myemail@gmail.com
 
 authors:
-    Dshsec:
-        name: DshSec
-        bio: A Little Chicken Loving Information Security
+    johndoe:
+        name: John Doe
+        bio: A Man who travels the world eating noodles
         external-image: false
         picture: assets/images/profile.jpg
-        twitter: Dshsec
+        twitter: johndoe
+    jamesfoster:
+        name: James Foster
+        bio: A Man who develops software with coffee
+        external-image: false
+        picture: assets/images/james.jpg
+        twitter: jamesfoster
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
@@ -65,9 +79,8 @@ width: normal
 # if you don't need projects, comment the *projects* configs below
 projects: true
 
-
 # if you don't need "about" or "blog", comment them out below
-about: false
+about: true
 blog: true
 
 # do you want to show the "read time" of the posts?
@@ -79,8 +92,8 @@ show-tags: true
 # related posts inside a post?
 related: true
 
-# show next & prev links in blog post?
-blog-nav-links: false
+# Display links for next and previous posts for the specified categories
+post-advance-links: [blog]
 
 # show author block at the end of a post ?
 show-author: true
@@ -88,18 +101,20 @@ show-author: true
 # do you want some animations?
 animation: true
 
-sass:
-    sass_dir: _sass
-    style: :compressed
-
-gems:
-  - jemoji
-  - jekyll-mentions
+plugins:
   - jekyll-seo-tag
-  - jekyll-feed
-  - jekyll-sitemap
   - jekyll-gist
-  - jekyll-paginate
+  - jekyll-feed
+  - jemoji
+  - jekyll-admin
 
 jekyll-mentions:
     base_url: https://github.com
+
+compress_html:
+    ignore:
+        envs:
+        - development
+        - stage
+
+exclude: ["travis.sh", "Rakefile", "README.md", "Gemfile", "Gemfile.lock", "FAQ.md"]
