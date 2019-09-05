@@ -3,7 +3,7 @@ layout: post
 title: Pwnable-02-collision
 description: >
   这是pwnable的第二题collision的解析过程，其中涉及到思路分析
-tags: [技术]
+blog: true
 author: DshSec
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          '#4fb1ba'
