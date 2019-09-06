@@ -1,0 +1,41 @@
+---
+layout: post
+title: 此贴为工具帖，持续更新
+description: >
+  此贴为工具帖，主要留一些日常用到的小工具，一般包含的内容为下载链接、基本说明
+tags: [杂货铺]
+author: DshSec
+accent_image:          /assets/img/sidebar-bg.jpg
+accent_color:          '#4fb1ba'
+category: blog
+---
+#### 系统运维类
+
+1. LGPO
++ 文档：https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/  
++ 链接：https://www.microsoft.com/en-us/download/details.aspx?id=55319  
++ 简述：通过该工具可实现以单台主机配置为模板对其他多台主机本地安全策略的批量调整，可导出电脑的本地安全策略，然后再导入到其他需要配置本地安全策略的电脑。在基线加固中可能能用到。    
+2. logparser2.2  
++ 链接：https://www.microsoft.com/en-us/download/details.aspx?id=24659    
++ 简述：微软提供的用来对多种日志文件进行分析的工具，例如windows事件、iis日志等多种日志，通过使用sql语句进行查询，也可到将结果导出为各种格式，还具有进行绘制图表等、统计等功能。但为命令行版本    
+
+#### 网站类
+
+1. CTF在线工具
++ 链接：http://ctf.ssleye.com/  
++ 简述：该网站提供了多种加密、编码的在线编解码、加解密的功能。主要涉及到CTF的编码、算法、和杂项类  
+2. 奶牛快传
++ 链接：https://cowtransfer.com/  
++ 简述：一个提供文件临时分享的网站，可在无U盘的情况下传输某些临时不机密文件(功能类似于临时网盘，优点为无需客户端，浏览器打开即可)。最大4G，保留72小时。  
+3. 在线二维码识别工具
++ 链接：https://cli.im/deqr
++ 简述：在线识别二维码、可通过电脑摄像头(建议把自己的摄像头封住)、二维码图片链接、或者上传二维码进行识别
+4. 在线图片和base64相互转换
++ 链接：http://imgbase64.duoshitong.com/
++ 简述：可用于在线图片和base64的相互转换，可能在做CTF或者WEB渗透的时候用到
+5. 在线短信验证码接收
++ 链接：http://www.smszk.com/、https://www.becmd.com/、http://www.z-sms.com/、https://www.pdflibr.com/
++ 简述：在线接收手机验证码，在注册一些网站又不想使用自己的电话号码的时候使用，毕竟现在注册个网站，隔天信息就被卖掉了。
+6. 脚本之家在线工具
++ 链接:http://tools.jb51.net/
++ 简述：包含很多在线工具的网站，涉及到开发类、解密类、生活类、
