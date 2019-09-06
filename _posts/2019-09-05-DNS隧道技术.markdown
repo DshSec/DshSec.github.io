@@ -32,6 +32,7 @@ description: 涉及DNS隧道技术的简单讲解和利用
 DNS迭代查询而实现的中继隧道，则更为隐秘，但同时因为数据包到达目标DNS Server前需要经过多个节点，所以速度上较直连慢很多。DNS Tunneling的中继模式过程如下图所示。    
 ![Full-width image](/assets/img/docs/DNStunnel/1.png)  
 上图中，UserA 和User B由于防火墙D的规则限制无法访问外网,但防火墙上对于DNS的流量是放行的。当User需要解析的域名Local DNS Server无法给出回答时，Local DNS Server就会采用迭代查询通过互联网与各级域的权威服务器进行查询，比如从com域的服务器得到test.com域的权威服务器地址，最后定位到所查询域的权威DNS Server，形成一个逻辑信道。所以，我们可以将通信的数据封装在客户端查询的请求中，当请求的数据包经过上图的路径，最终到达我们控制的权威DNS Server时，再从请求数据包中解析出数据，并将相应的数据封装在DNS Response中，返回给Client完成通信。(Local DNS Server可以由Remote DNS Server代替，原理相同)  
+
 #### dns隧道过程可能出现的问题   
 
  1. 由于DNS查询时会先进行缓存查询，若在DNS缓存中存在这个域名的解析记录便会使用本地缓存进行解析，而不会将dns请求转发出去，因此需要不断地变换一些不存在的域名或已过期的域名来保证绕过本地缓存服务器。   

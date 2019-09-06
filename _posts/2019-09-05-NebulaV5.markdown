@@ -18,6 +18,7 @@ description: Nebula是一个用来练习Linux下权限提升的靶机
 靶机介绍：Nebula让参与者了解Linux中的各种常见（并且不常见）弱点和漏洞。它需要看看+ SUID文件+权限+竞争条件+ Shell变量+ $PATH弱点+脚本语言弱点+二进制编译失败。在Nebula结束时，用户将对Linux系统的本地攻击有一个相当透彻的理解，粗略地了解一下可能的一些远程攻击。  
 
 ### Level00
+
 1. 首先根据提示登陆level00用户，密码为level00，常规思路，先看用户目录，发现啥也没有。
 ![Full-width image](/assets/img/docs/Nebula/level00/1.png)
 2. 看到个flag00文件夹，依旧啥也没有  
@@ -33,7 +34,9 @@ find / -executable -user flag00 2>/dev/null | grep flag00
 ![Full-width image](/assets/img/docs/Nebula/level00/3.png)
 4. 然后挨个执行，成功拿到flag  
 ![Full-width image](/assets/img/docs/Nebula/level00/4.png)
+
 ### Level01
+
 1. 首先在文件夹下发现flag01文件，并且具有u+s权限，也就是当执行时会以root权限的身份去执行    
 [三种u+s,g+s,o+t权限]("https://blog.csdn.net/linting0909/article/details/82902196")
 ![Full-width image](/assets/img/docs/Nebula/level01/1.png)
