@@ -14,7 +14,7 @@ category: blog
 ---
 #### pwnable介绍
 
-  ['pwnable.kr'](https://pwnable.kr/index.php)is a non-commercial wargame site which provides various pwn challenges regarding system exploitation. the main purpose of pwnable.kr is 'fun'.    please consider each of the challenges as a game. while playing pwnable.kr, you could learn/improve system hacking skills but that shouldn't be your only purpose.
+  [pwnable.kr](https://pwnable.kr/index.php)is a non-commercial wargame site which provides various pwn challenges regarding system exploitation. the main purpose of pwnable.kr is 'fun'.    please consider each of the challenges as a game. while playing pwnable.kr, you could learn/improve system hacking skills but that shouldn't be your only purpose.
 
 #### 源代码：
 ```c++
@@ -80,4 +80,4 @@ category: blog
 
 ```
 
-> **NOTE**：['大小端模式'](https://baike.baidu.com/item/%E5%A4%A7%E5%B0%8F%E7%AB%AF%E6%A8%A1%E5%BC%8F/6750542?fr=aladdin)大端模式，是指数据的高字节保存在内存的低地址中，而数据的低字节保存在内存的高地址中，这样的存储模式有点儿类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放；这和我们的阅读习惯一致。小端模式，是指数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中，这种存储模式将地址的高低和数据位权有效地结合起来，高地址部分权值高，低地址部分权值低.
+> **NOTE**：["大小端模式"](https://baike.baidu.com/item/%E5%A4%A7%E5%B0%8F%E7%AB%AF%E6%A8%A1%E5%BC%8F/6750542?fr=aladdin)大端模式，是指数据的高字节保存在内存的低地址中，而数据的低字节保存在内存的高地址中，这样的存储模式有点儿类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放；这和我们的阅读习惯一致。小端模式，是指数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中，这种存储模式将地址的高低和数据位权有效地结合起来，高地址部分权值高，低地址部分权值低.
