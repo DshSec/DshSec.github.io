@@ -19,6 +19,7 @@ description: goDoh
 + 项目地址：https://github.com/trustedsec/trevorc2  
 + 项目介绍：TrevorC2是一种客户端/服务器模型，用于通过可浏览的网站隐藏命令和控制。由于时间的不同和不使用POST请求进行数据提取，使得检测变得更加困难。TrevorC2分为客户端和服务器。在此项目中，提供了三种形式的客户端，包括python、C#、powershell版本。trevorc2_client.py支持Windows，MacOS和Linux。您可以对Windows进行字节编译以获得可执行文件。如果是使用windows，也可以使用trevorc2_client.ps1利用powershell进行使用。  
 
+
 #### 0x01(安装):
 安装时需要python环境，笔者测试过程中为python3环境  
 ```
@@ -30,11 +31,14 @@ pip install -r requirements.txt
 在使用过程中服务器端无需太多的配置修改，建议修改CIPHER参数即可，该参数为链接秘钥，客户端和服务器端应当保持一致。
 ![](imgclip.png "imgclip.png")  
 客户端中需要将配置文件中的$SITE_URL配置为自己服务器的站点。http://服务器IP
+
+
 #### 0x02(使用):
 服务端：
 ```
 python trevorc2_server.py
 ```
+
 客户端：
 1. 使用powershell:  
 ```
