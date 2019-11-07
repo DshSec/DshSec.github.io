@@ -42,11 +42,11 @@ sigcheck下载链接：https://docs.microsoft.com/zh-cn/sysinternals/downloads/s
 
 ## UACbypass
 
+待续
 
 
 
-
-##相关链接
+## 相关链接
 1. 微软官方文档：https://docs.microsoft.com/zh-cn/windows/security/identity-protection/user-account-control/how-user-account-control-works   
 2. 通过SystemPropertiesAdvanced.exe和DLL劫持进行的UAC绕过：https://egre55.github.io/system-properties-uac-bypass/  
 3. QQ拼音输入法6.0最新版DLL劫持 - 可利用于提权：https://payloads.online/archivers/2018-06-09/1
