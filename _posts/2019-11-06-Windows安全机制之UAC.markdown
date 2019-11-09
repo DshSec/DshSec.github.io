@@ -1,7 +1,7 @@
 ---
 title: "Windows安全机制之UAC"
 layout: post
-date: 2019-09-05
+date: 2019-11-06
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
@@ -36,15 +36,33 @@ UAC主要的优点在于当用管理员用户登陆并进行操作时，执行�
 >安全桌面：当可执行文件请求提升时，交互式桌面（也称为用户桌面）将切换到安全桌面。 安全桌面使用户桌面变暗，并显示在继续操作之前必须响应的提升提示。 当用户单击 "是" 或 " 否" 时，桌面将切换回用户桌面  
 
 ## Auto-Elevation
-提升（大多数）Windows可执行文件不会导致出现UAC提示的原因是系统“自动提升”了Windows可执行文件。首先，在这种情况下Windows定义为Windows可执行文件是什么？答案取决于几个因素，但必须满足以下两个条件：它必须由Windows发布者进行数字签名，这是用于对Windows随附的所有代码进行签名的证书（仅由Microsoft签名是不够的，因此Microsoft软件不能不包括Windows中附带的内容）；并且它必须位于少数“安全”目录之一中。安全目录是标准用户无法修改的目录，其中包括%SystemRoot%\System32 (e.g.\Windows\System32)及其大部分子目录，%SystemRoot%\Ehome。另外，根据可执行文件是普通的.exe，Mmc.exe还是COM对象，自动提升具有其他规则。如果.exe品种的Windows可执行文件（如刚刚定义）在清单中指定autoElevate属性，则它们将自动提升，这也是应用程序向UAC指示其需要管理权限的地方。这是Sysinternals Sigcheck实用程序，它使用命令“ sigcheck –m   %systemroot%\system32\taskmgr.exe”转储任务管理器（Taskmgr.exe）的清单，这表明任务管理器已选择自动提升，如下图。  
-![Full-width image](/assets/img/docs/UAC/4.png)     
-sigcheck下载链接：https://docs.microsoft.com/zh-cn/sysinternals/downloads/sigcheck  
+当执行部分程序时并不会出现UAC提示，例如控制面板中管理工具中的大部分程序。这是因为系统“自动提升”了该程序的执行权限。一般只有windows程序才会存在自动提示权限，存在自动提升权限的windows程序必须满足以下两个条件：它必须由Windows发布者进行数字签名，这是用于对Windows随附的所有代码进行签名的证书（仅由Microsoft签名是不够的，因此Microsoft软件不能不包括Windows中附带的内容）；并且它必须位于少数“安全”目录之一中。安全目录是标准用户无法修改的目录，其中包括%SystemRoot%\System32 (e.g.\Windows\System32)及其大部分子目录，%SystemRoot%\Ehome。另外，根据可执行文件是普通的.exe，Mmc.exe还是COM对象，自动提升具有其他规则。如果.exe品种的Windows可执行文件（如刚刚定义）在清单中指定autoElevate属性，则它们将自动提升，这也是应用程序向UAC指示其需要管理权限的地方。  
+检查程序是否存在AutoElevation属性:
+1. findstr /C:"<autoElevate>true" [ProgramPATH]  
+2. sigcheck –m  [ProgramPATH] | findstr autoElevate  
+结果如下图所示：  
+![Full-width image](/assets/img/docs/UAC/4.png)
+![Full-width image](/assets/img/docs/UAC/5.png)      
+sigcheck下载链接：https://docs.microsoft.com/zh-cn/sysinternals/downloads/sigcheck    
 
 ## UACbypass
+### 通过DLL劫持进行UAC绕过
+#### 通过SystemPropertiesAdvanced.exe的DLL劫持进行UAC绕过
+“SystemPropertiesAdvanced.exe”和其他SystemProperties*二进制文件可用于通过DLL劫持绕过Windows Server 2019上的UAC。  
+查询程序具有autoElevate属性。
+![Full-width image](/assets/img/docs/UAC/5.png)
+通过process monitor对该程序进行监控在筛选过程中可以设定如下筛选条件快速定位。  
+![Full-width image](/assets/img/docs/UAC/7.png)  
+发现该程序会在AppData路径下寻找srrstr.dll文件。  
+![Full-width image](/assets/img/docs/UAC/6.png)  
+C:\Users\XXXX\AppData是可操作目录。因此我们可以通过替换srrstr.dll来进行一个dll劫持。可以通过Cacls 加文件夹路径来查看ACL信息，F表示完全控制，可见当前用户是对这个文件夹有完全控制权限的。     
+![Full-width image](/assets/img/docs/UAC/8.png)  
+利用msfvenom生成一个打开cmd的dll。然后将其放到上图中SystemPropertiesAdvanced.exe想要调用dll的路径去。  
+![Full-width image](/assets/img/docs/UAC/9.png)    
+放入dll文件后再运行SystemPropertiesAdvanced.exe即可弹出一个管理员的cmd，无需UAC确认。  
 
-待续
-
-
+通过在安全与维护-用户账户控制设置中设置始终弹出可有效缓解此漏洞。windows18362已修复。
+####
 
 ## 相关链接
 1. 微软官方文档：https://docs.microsoft.com/zh-cn/windows/security/identity-protection/user-account-control/how-user-account-control-works   
